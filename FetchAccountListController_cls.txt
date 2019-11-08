@@ -1,0 +1,13 @@
+public class FetchAccountListController {
+ @AuraEnabled
+
+    public static list<Account> fetchAccountList(){
+
+        return [SELECT Id, Name, Type, Phone,createdDate , AccountNumber, Website, Site, NumberOfEmployees,
+                AnnualRevenue, Industry 
+                FROM Account order by createdDate DESC limit 10];             
+
+    }
+
+
+}

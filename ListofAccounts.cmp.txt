@@ -1,0 +1,24 @@
+<aura:component controller="FetchAccountListController" implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="AccList" type="contact[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />   
+    <lightning:card title="Recently Created Accounts">
+        <p class="slds-p-horizontal_small ">
+            <aura:iteration items="{!v.AccList}" var="item">
+                <lightning:recordViewForm recordId="{!item.Id}" objectApiName="Account">
+                    <div class="slds-box slds-theme_default">
+                        <!-- outputfield used to output the record field data inside recordViewForm -->
+                        <lightning:outputField fieldName="Name" />
+                        <lightning:outputField fieldName="Phone" />
+                        <lightning:outputField fieldName="AccountNumber" />
+                    </div>
+                </lightning:recordViewForm>
+                <!-- Line break between two records -->
+                <br />
+                
+                
+            </aura:iteration>
+        </p>
+    </lightning:card>
+</aura:component>
